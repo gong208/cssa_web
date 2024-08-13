@@ -1,5 +1,3 @@
-<<<<<<< HEAD
-
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
@@ -75,11 +73,3 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/t
 # cssa_web
 
 website for UIUC CSSA
-
->>>>>>> 2985a4c9b7b9c732a7dffc23c5e0e2c1183c8bb4
->>>>>>>
->>>>>>
->>>>>
->>>>
->>>
->>
