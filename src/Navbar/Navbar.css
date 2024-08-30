@@ -15,7 +15,7 @@
   justify-content: space-between;
   position: relative;
   height: var(--header-height);
-  margin: 1rem;
+  /* margin: 1rem; */
 }
 
 .nav__logo {
@@ -104,11 +104,11 @@
 .show-menu {
   right: 0;
 }
-.nav__listt {
+/* .nav__listt {
   display: flex;
   flex-direction: row;
   column-gap: 2.5rem;
-}
+} */
 
 .nav__menu_mobile {
   position: fixed;

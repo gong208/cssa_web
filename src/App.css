@@ -1,13 +1,27 @@
 .main-content {
-  padding-top: 5rem;
-  padding-left: 1rem;
+  position: absolute;
+  padding-top: 9.5rem;
+  /* padding-left: 15%; */
+  height: 100vh;
+  width: 100%;
+  z-index:2;
+  overflow-x: hidden;
+}
+@media screen and (max-width: 1150px) {
+  .main-content {
+    padding-top: 8.5rem;
+  }
+  
+}
+.wrapper{
+  height:auto;
 }
 .header {
   position: fixed;
   width: 100%;
   top: 0;
   left: 0;
-  margin-bottom: auto;
+  /* margin-bottom: auto; */
   background-color: var(--body-color);
   z-index: var(--z-fixed);
   transition: background-color 0.3s ease;
@@ -18,3 +32,16 @@
   align-items: center;
   height: var(--header-height);
 }
+.app-container{
+  height: 100%;
+}
+
+/* .app-container.home-background {
+  background-image: url("mainpage_imgs/cssa_test.png");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  min-height: 100vh;
+} */
+
+

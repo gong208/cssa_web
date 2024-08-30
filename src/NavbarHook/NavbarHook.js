@@ -3,17 +3,23 @@ import { NavLink } from "react-router-dom";
 import { IoClose, IoMenu } from "react-icons/io5";
 import { useMediaQuery } from "react-responsive";
 import "./NavbarHook.css";
+import logo from "../mainpage_imgs/cssa_logo.jpg";
 
 const NavbarHook = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const isMobile = useMediaQuery({ maxWidth: "850px" });
+  const isAbbreviated = useMediaQuery({ maxWidth: "1200px" });
 
+
+  const closeDropdown = () => {
+    closeMobileMenu();
+  };
   const toggleMenu = () => {
     setIsMenuOpen(!isMenuOpen);
   };
 
   const closeMobileMenu = () => {
-    if (isMobile) {
+    if (isMobile && isMenuOpen) {
       setIsMenuOpen(false);
     }
   };
@@ -21,58 +27,61 @@ const NavbarHook = () => {
   const renderNavLinks = () => {
     const listClassName = isMobile ? "nav__list" : "nav__list__web";
     const linkClassName = "nav__link";
-    const buttonClassName = "nav__cta";
 
     return (
       <ul className={listClassName}>
         <li>
-          <NavLink to="/" className={linkClassName} onClick={closeMobileMenu}>
-            事务部
+          <NavLink to="/about" className={linkClassName} onClick={closeMobileMenu}>
+            关于我们
           </NavLink>
         </li>
         <li>
           <NavLink
-            to="/news"
+            to="/events"
             className={linkClassName}
             onClick={closeMobileMenu}
           >
-            传媒部
+            活动预告
           </NavLink>
         </li>
         <li>
+          <div className="navlink-container">
+            <NavLink
+              to="#"
+              className={linkClassName}
+            >
+              部门介绍
+            </NavLink>
+
+            <div className="dropdown-menu">
+              <NavLink to="/shiwu" className="dropdown-item" onClick={closeDropdown}>
+                department 1 
+              </NavLink>
+              <NavLink to="/media" className="dropdown-item" onClick={closeDropdown}>
+                department 2
+              </NavLink>
+              <NavLink to="/business" className="dropdown-item" onClick={closeDropdown}>
+                department 3
+              </NavLink>
+            </div>
+          </div>
+        </li>
+        <li>
           <NavLink
-            to="/about-us"
+            to="resources"
             className={linkClassName}
             onClick={closeMobileMenu}
           >
-            商业部
+            资源分享
           </NavLink>
         </li>
         <li>
           <NavLink
-            to="/favorite"
+            to="apply"
             className={linkClassName}
             onClick={closeMobileMenu}
           >
-            文联部
-          </NavLink>
-        </li>
-        <li>
-          <NavLink
-            to="/location"
-            className={linkClassName}
-            onClick={closeMobileMenu}
-          >
-            文体部
-          </NavLink>
-        </li>
-        <li>
-          <NavLink
-            to="/get-started"
-            className={`${linkClassName} ${buttonClassName}`}
-            onClick={closeMobileMenu}
-          >
-            Get Started
+            加入我们
           </NavLink>
         </li>
       </ul>
@@ -81,12 +90,15 @@ const NavbarHook = () => {
 
   return (
     <header className="header">
+      <div className="banner">
+        <img src={logo} alt="logo" className="banner_logo" />
+        <NavLink to="/">
+        <h1 className="banner_title"> {isAbbreviated ? ("CSSA") : ("UIUC CSSA")}</h1>
+        </NavLink>
+      </div>
       <nav className="nav container">
-        {/* <NavLink to="/" className="nav__logo">
-          Navigation Bar
-        </NavLink> */}
 
-        {isMobile && (
+        {isMobile && !isMenuOpen && (
           <div className="nav__toggle" id="nav-toggle" onClick={toggleMenu}>
             <IoMenu />
           </div>

@@ -8,9 +8,11 @@
 
 :root {
   --header-height: 3.5rem;
-  --first-color: hsl(28, 88%, 62%);
+  --first-color: #af2e25;
   --title-color: hsl(0, 0%, 95%);
   --text-color: hsl(0, 0%, 75%);
+  --background-color: #9DBDC6;
+  --background-color-secondary: #DAEAEF;
   --body-color: hsl(0, 0%, 6%);
   --body-font: "Montserrat", sans-serif;
   --second-font: "Dancing Script", cursive;
@@ -21,10 +23,11 @@
   --z-fixed: 100;
 }
 
-body {
+body,html, #root {
   background-color: var(--body-color);
   color: var(--text-color);
   font-family: var(--body-font);
+  /* height: 100%; */
 }
 
 ul {
@@ -33,4 +36,33 @@ ul {
 
 a {
   text-decoration: none;
+}
+
+@keyframes float {
+  0% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+  100% {
+    transform: translateY(0);
+  }
+}
+
+@keyframes float-up {
+  0% {
+    transform: translateY(50px);
+    opacity: 0;
+  }
+  100% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+.floating-text {
+  display: inline-block;
+  animation: float-up 1s ease-out forwards;
+  /* 1s is the duration of the animation, adjust as needed */
 }
